@@ -1,0 +1,60 @@
+html {
+  background: #018ded
+    url(https://images.unsplash.com/photo-1517249865690-ee36eb09e596?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+  background-size: cover;
+  font-family: "helvetica neue";
+  text-align: center;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-size: 2rem;
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock {
+  width: 30rem;
+  height: 30rem;
+  border: 20px solid white;
+  border-radius: 50%;
+  margin: 50px auto;
+  position: relative;
+  padding: 2rem;
+  // 內層陰影：inset x y blur spread color
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef, inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+// 定位指針用
+.clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  // transform 位移高度
+  transform: translateY(-3px); /* account for the height of the clock hands */
+}
+
+.hand {
+  width: 50%;
+  height: 6px;
+  background: black;
+  position: absolute;
+  top: 50%;
+  transform-origin: 100%; // 固定指針位置 (目標的原點位置)
+  transform: rotate(90deg); // 設定初始 12 點 (旋轉 90 度)
+  // transition: all 0.5s; // 讓指針有震動效果
+  transition-timing-function: ease-in-out; // 讓指針有震動效果
+}
+
+.danger {
+  background: rgb(235, 64, 64);
+}
+
+.short {
+  width: 30%;
+  right: 50%; // 往右邊 50% 開始計算，回到原點 (原本是寬度是往左邊長)
+}

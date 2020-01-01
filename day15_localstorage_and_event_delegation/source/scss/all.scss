@@ -1,0 +1,100 @@
+html {
+  box-sizing: border-box;
+  background: url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80")
+    center no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  user-select: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+svg {
+  fill: white; // svg 的顏色 (類似 color)
+  background: rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  border-radius: 50%;
+  width: 200px;
+  margin-bottom: 50px;
+}
+
+.wrapper {
+  padding: 20px;
+  max-width: 350px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin: 0;
+  font-weight: 200;
+}
+
+// ul li 的樣式
+.plates {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  list-style: none;
+
+  & li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    font-weight: 100;
+    display: flex;
+  }
+
+  & label {
+    flex: 1;
+    cursor: pointer;
+  }
+
+  // 把 checkbox 隱藏
+  & input {
+    display: none;
+  }
+
+  // 透過相鄰的 label 加入 before 來顯示 icon
+  & input + label:before {
+    content: "⬜️";
+    margin-right: 10px;
+  }
+
+  // 當 input:checked 時，就轉換成另一個 icon
+  & input:checked + label:before {
+    content: "🌮";
+  }
+}
+
+// form 的樣式
+.add-items {
+  margin-top: 20px;
+
+  & input {
+    padding: 10px;
+    outline: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+.btn-group {
+  margin-top: 20px;
+  display: flex;;
+
+  & input[type="button"] {
+    flex: 1;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}

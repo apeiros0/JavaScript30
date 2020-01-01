@@ -1,0 +1,108 @@
+html {
+  box-sizing: border-box;
+  background: #ffc600;
+  font-family: "helvetica neue";
+  font-size: 20px;
+  font-weight: 200;
+}
+
+body {
+  margin: 0; // 填滿 body
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; // 繼承父層的 broder-sizing 設定値
+}
+
+.panels {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex; // 使用 flex 對 .panel 排版
+}
+
+.panel {
+  background: #6b0f9c;
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1); // 每個 panel 加上內陰影
+  color: white;
+  text-align: center;
+  /* Safari transitionend event.propertyName === flex */
+  /* Chrome + FF transitionend event.propertyName === flex-grow */
+  transition: 
+    font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), 
+    flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+    background 0.2s; // 針對不同屬性作動畫效果
+  font-size: 20px;
+  background-size: cover;
+  background-position: center;
+  flex: 1; // 透過 flex-grow 均分所有 panel
+  display: flex; // 使用 flex 對 p 元素排版
+  flex-direction: column; // 改變排版方向
+}
+
+.panel1 {
+  background-image: url(https://images.unsplash.com/photo-1560885255-553ebff9b3c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+}
+.panel2 {
+  background-image: url(https://images.unsplash.com/photo-1548101867-d17278d246bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
+}
+.panel3 {
+  background-image: url(https://images.unsplash.com/photo-1566807810030-3eaa60f3e670?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+}
+.panel4 {
+  background-image: url(https://images.unsplash.com/photo-1547147607-6eab7b49f3ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
+}
+.panel5 {
+  background-image: url(https://images.unsplash.com/photo-1548367074-c9804f727062?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+}
+
+/* Flex Children */
+// 選擇 .panel 下一層的所有元素
+.panel > * {
+  margin: 0;
+  width: 100%;
+  transition: transform 0.5s;
+  // border: 2px solid red; // 透過設定 border 能知道在哪個元素上
+  flex: 1 0 auto; // 讓 p 元素自動均分
+  display: flex; // 對 p 元素的內容排版
+  justify-content: center;
+  align-items: center;
+}
+
+// .panel 下的所有 p 元素中的第一個元素
+.panel > *:first-child {
+  transform: translateY(-100%); // 使用 translateY 推移 -100% (向上)
+}
+
+// 加入 .open-active 恢復 p 元素中的第一個元素推移
+.panel.open-active > *:first-child {
+  transform: translateY(0);
+}
+
+// .panel 下的所有 p 元素中的最後一個元素
+.panel > *:last-child {
+  transform: translateY(100%); // 使用 translateY 推移 100% (向下)
+}
+
+// 加入 .open-active 恢復 p 元素中的最後一個元素推移
+.panel.open-active > *:last-child {
+  transform: translateY(0);
+}
+
+.panel p {
+  text-transform: uppercase;
+  font-family: "Amatic SC", cursive;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+  font-size: 2em;
+}
+
+.panel p:nth-child(2) {
+  font-size: 4em;
+}
+
+// 透過 .open 打開 .panel
+.panel.open {
+  flex: 5; // .panel 增加剩餘空間的 5 倍
+  font-size: 40px; // 字體變大
+}

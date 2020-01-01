@@ -1,0 +1,15 @@
+extend partials/_layout.jade
+
+block content
+  .timer
+    .timer__controls
+      button.timer__button(data-time="20") 20 Sec
+      button.timer__button(data-time="300") Work 5
+      button.timer__button(data-time="900") Quick 15
+      button.timer__button(data-time="1200") Snack 20
+      button.timer__button(data-time="3600") Lunch Break
+      form#custom(name="customForm")
+        input(type="text", name="minutes" placeholder="Enter Minutes")
+    .display
+      h1.display__time-left
+      p.display__end-time

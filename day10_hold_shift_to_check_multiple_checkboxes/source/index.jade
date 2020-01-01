@@ -1,0 +1,33 @@
+extend partials/_layout.jade
+//- The following is a common layout you would see in an email client.
+//- When a user clicks a checkbox, holds Shift, and then clicks another checkbox a few rows down, all the checkboxes inbetween those two checkboxes should be checked.
+block content
+  .inbox
+    .item
+      input(type="checkbox")
+      //- 這裡通常會是 label
+      p This is an inbox layout.
+    .item
+      input(type="checkbox")
+      p Check one item
+    .item
+      input(type="checkbox")
+      p Hold down your Shift key
+    .item
+      input(type="checkbox")
+      p Check a lower item
+    .item
+      input(type="checkbox")
+      p Everything in between should also be set to checked
+    .item
+      input(type="checkbox")
+      p Try to do it without any libraries
+    .item
+      input(type="checkbox")
+      p Just regular JavaScript
+    .item
+      input(type="checkbox")
+      p Good Luck!
+    .item
+      input(type="checkbox")
+      p Don't forget to tweet your result!

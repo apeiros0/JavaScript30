@@ -1,0 +1,23 @@
+extend partials/_layout.jade
+
+block content
+  .voiceinator
+    h1 The Voiceinator 5000
+    //- 包含其他不同語系的聲音
+    select#voices(name="voice")
+      option(value="") Select A Voice
+    
+    //- name = "rate, pitch, text" 會與 utterance 物件的屬性對應，不要隨意改變
+    //- 調整講話的速度
+    label(for="rate") Rate:
+    input(name="rate" type="range" min="0" max="3" value="1" step="0.1")
+    
+    //- 調整講話的音調
+    label(for="pitch") Pitch:
+    input(name="pitch" type="range" min="0" max="2" step="0.1")
+    
+    //- 輸入要說什麼話
+    textarea(name="text") Hello! I love JavaScript 👍
+    
+    button#stop Stop!
+    button#speak Speak

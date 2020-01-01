@@ -1,0 +1,18 @@
+extend partials/_layout.jade
+
+block content
+  .player
+    video.player__video.viewer(src="./videos/652333414.mp4")
+    .player__controls
+      .progress
+        .progress__filled
+      //- 切換播放和暫停
+      button.player__button.toggle(title="Toggle Play") ►
+      //- step 是每次增加多少
+      //- 調整音量和播放速率
+      input.player__slider(type="range" name="volume" min="0" max="1" step="0.05" value="1")
+      input.player__slider(type="range" name="playbackRate" min="0.25" max="2.5" step="0.25" value="1")
+      //- 快轉和倒帶
+      button.player__button(data-skip="-10") « 10s
+      button.player__button(data-skip="25") 25s »
+      button.player__button.fullscreen(title="Toggle FullScreen") ⇱

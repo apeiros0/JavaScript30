@@ -1,0 +1,17 @@
+extend partials/_layout.jade
+
+block content
+  h2 Update CSS Variables with 
+    span.h1 JS
+
+  .controls
+    label(for="spacing") Spacing
+    input#spacing(type="range" name="spacing" min="0" max="200" value="0" data-sizing="px")
+
+    label(for="blur") Blur
+    input#blur(type="range" name="blur" min="0" max="25" value="0" data-sizing="px")
+
+    label(for="base") Base Color
+    input#base(type="color" name="base" value="#FFFFFF")
+
+  img(src="https://images.unsplash.com/photo-1571586100122-0869bd6e77c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&h=500&q=80" alt="nature")
